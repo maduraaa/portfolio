@@ -7,7 +7,6 @@ import NotFound from './pages/NotFound';
 import Layout from './layout/Layout';
 
 const App = () => {
-
   return (
     <BrowserRouter>
       <Routes>
