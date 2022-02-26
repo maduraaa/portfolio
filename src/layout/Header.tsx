@@ -1,4 +1,3 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Colors from './../tools/Colors';
@@ -53,7 +52,7 @@ const Ul = styled.ul`
     align-items: center;
 `;
 const Li = styled.li`
-
+    list-style: none;
 `;
 const Link = styled(NavLink)`
     color: ${Colors.White};
