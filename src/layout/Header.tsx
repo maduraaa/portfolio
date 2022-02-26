@@ -13,6 +13,9 @@ const Header: React.FC<{}> = () => {
             <Nav>
                 <Ul>
                     <Li>
+                        <Link to='/'>Dashboard</Link>
+                    </Li>
+                    <Li>
                         <Link to='/about'>About</Link>
                     </Li>
                     <Li>
