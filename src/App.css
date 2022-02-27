@@ -58,3 +58,28 @@ body {
 *{
 	box-sizing: border-box;
 }
+
+
+/* scroll bar */
+
+/* width */
+::-webkit-scrollbar {
+	width: 2px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	background: transparent; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background: #FFC25C; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+	background: #FFC25C; 
+  }
+  
+/* scroll bar */
