@@ -71,6 +71,7 @@ const HeaderWrapper = styled.header`
             box-shadow: 0px -1px 3px 0px rgba(255,194,92,1);
             border-top-right-radius: 17px;
             border-top-left-radius: 17px;
+            background-color: ${Colors.Primary};
         }
 `;
 const Name = styled(NavLink)`
