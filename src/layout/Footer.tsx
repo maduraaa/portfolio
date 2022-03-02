@@ -90,6 +90,8 @@ const WalkGif = styled.img`
   top: -45px;
   z-index: 2;
   animation: ${Walk} 90s infinite linear;
+  user-select: none;
+  pointer-events: none;
 `;
 
 export default Footer
