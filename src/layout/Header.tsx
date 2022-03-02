@@ -80,9 +80,9 @@ const Name = styled(NavLink)`
     font-family: ${Fonts.Roboto};
     text-decoration: none;
     padding: 5px;
-        -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
-        -webkit-mask-size: 200%;
-        animation: ${shine} 2s infinite;
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+    -webkit-mask-size: 200%;
+    animation: ${shine} 2s infinite;
     ${Responsive.tablet} {
         font-size: 20px;
     }
@@ -146,7 +146,7 @@ const Link = styled(NavLink)`
     }
     ${Responsive.mobile}{
         margin: 0px;
-        font-size: 16px;
+        font-size: 15px;
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
