@@ -61,6 +61,7 @@ const HeaderWrapper = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 10;
         ${Responsive.mobile}{
             position: fixed;
             bottom: 0;
