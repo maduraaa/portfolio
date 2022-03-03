@@ -83,3 +83,17 @@ body {
   }
   
 /* scroll bar */
+
+
+/* mui style */
+.MuiOutlinedInput-notchedOutline  { /* input border color */
+	border-color: #FFC25C !important; 
+	border-radius: 13px !important;
+}
+.MuiInputLabel-outlined {
+	color: #FFC25C !important; /* outline text color */
+}
+#outlined-basic, #outlined-multiline-static {
+	color: #FFC25C !important; /* value color */
+}
+/* mui style */

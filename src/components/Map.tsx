@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps"
 import mapStyles from '../data/mapStyles';
 import MapMarkerIcon from '../icon/map-marker.png'
+import Responsive from '../tools/Responsive';
 
 
 
 const MapSetting: React.FC<{}> = ({ }) => {
   return (
     <GoogleMap
-      defaultZoom={13} // default map zoom
+      defaultZoom={12} // default map zoom
       defaultCenter={{ lat: 41.720287, lng: 44.740616 }} //location
       defaultOptions={{ styles: mapStyles }} //custom map json
     >
@@ -41,6 +42,9 @@ const Map = () => {
 const Wrapper = styled.div`
   height: 100%;
   width: 100%;
+    ${Responsive.mobile} {
+      height: 200px;
+    }
 `;
 
 export default Map

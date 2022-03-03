@@ -2,13 +2,15 @@ import styled from 'styled-components';
 import Responsive from '../tools/Responsive';
 import GoogleMap from '../components/Map';
 import { Container } from '../tools/GlobalStyle';
+import ContactForm from '../components/ContactForm';
+
 
 const Contact = () => {
   return (
     <Container>
       <ContactdWrapper>
         <MapWrapper>
-          {/* <div> next here </div> */}
+          <ContactForm />
           <GoogleMap />
         </MapWrapper>
       </ContactdWrapper>
@@ -29,7 +31,6 @@ const ContactdWrapper = styled.div`
 `;
 const MapWrapper = styled.div`
   width: 100vw;
-  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
