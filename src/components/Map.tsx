@@ -40,7 +40,7 @@ const Map = () => {
 }
 
 const Wrapper = styled.div`
-  height: 100%;
+  height: 290px;
   width: 100%;
     ${Responsive.mobile} {
       height: 200px;
