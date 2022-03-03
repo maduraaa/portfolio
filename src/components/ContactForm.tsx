@@ -13,25 +13,38 @@ const ContactForm: React.FC<{}> = () => {
     const [message, setMessage] = useState('');
     const [disabledBtn, setDisabledBtn] = useState(false);
 
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [offer, setOffer] = useState('');
+
     const sendEmail = (e: any) => {
         e.preventDefault();
 
-        emailjs.sendForm(
-            'service_2ty866d',
-            'template_u66arho',
-            e.target,
-            'Hq2uHCwaXaQdC-tew'
-        ).then(res => {
+        if (name.trim().length < 1 || email.trim().length < 1 || offer.trim().length < 1 ) {
             setShowPopUp(true);
-            setMessage('Successfully sent')
-            setDisabledBtn(true)
-            console.log(res)
-        }).catch(err => {
-            setShowPopUp(true);
-            setMessage('Try it later')
-            console.log(err)
-        })
-    }
+            setMessage('Fill in all the fields')
+        }else {
+            setShowPopUp(false);
+            setMessage('')
+            emailjs.sendForm(
+                'service_2ty866d',
+                'template_u66arho',
+                e.target,
+                'Hq2uHCwaXaQdC-tew'
+            ).then(res => {
+                setShowPopUp(true);
+                setMessage('Successfully sent')
+                setDisabledBtn(true)
+                console.log(res)
+            }).catch(err => {
+                setShowPopUp(true);
+                setMessage('Try it later')
+                console.log(err)
+            })
+        }
+        }
+
+
 
     useEffect(() => {
         setTimeout(() => {
@@ -55,6 +68,8 @@ const ContactForm: React.FC<{}> = () => {
                             placeholder='Company Name'
                             fullWidth
                             type='text'
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             size='medium' />
 
                         <EmailInput
@@ -65,6 +80,8 @@ const ContactForm: React.FC<{}> = () => {
                             placeholder='Company email'
                             fullWidth
                             type='email'
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             size='medium' />
                     </TextFieldWrapper>
 
@@ -78,6 +95,8 @@ const ContactForm: React.FC<{}> = () => {
                             name='company-offer'
                             placeholder='Offer'
                             fullWidth
+                            value={offer}
+                            onChange={(e) => setOffer(e.target.value)}
                             defaultValue="" />
                     </SecondWrapper>
                 </Content>
