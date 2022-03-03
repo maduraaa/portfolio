@@ -1,76 +1,98 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import Colors from '../tools/Colors';
 import Fonts from '../tools/Fonts';
 import Responsive from '../tools/Responsive';
 import TextField from '@mui/material/TextField';
 import emailjs from 'emailjs-com'
-
+import RightPopUp from './RightPopUp';
 
 const ContactForm: React.FC<{}> = () => {
+
+    const [showPopUp, setShowPopUp] = useState(false);
+    const [message, setMessage] = useState('');
+    const [disabledBtn, setDisabledBtn] = useState(false);
 
     const sendEmail = (e: any) => {
         e.preventDefault();
 
         emailjs.sendForm(
-            'service_2ty866d', 
-            'template_u66arho', 
-            e.target, 
+            'service_2ty866d',
+            'template_u66arho',
+            e.target,
             'Hq2uHCwaXaQdC-tew'
         ).then(res => {
+            setShowPopUp(true);
+            setMessage('Successfully sent')
+            setDisabledBtn(true)
             console.log(res)
         }).catch(err => {
-            console.log('erroria ' + err)
+            setShowPopUp(true);
+            setMessage('Try it later')
+            console.log(err)
         })
     }
 
+    useEffect(() => {
+        setTimeout(() => {
+            if (showPopUp === true) {
+                setShowPopUp(false)
+            }
+        }, 5000);
+    }, [showPopUp]);
+
     return (
-        <Wrapper onSubmit={sendEmail}>
-            <OfferText>Send an Offer</OfferText>
-            <Content>
-                <TextFieldWrapper>
-                    <NameInput
-                        id="outlined-basic"
-                        label="Company Name"
-                        name='company-name'
-                        variant="outlined"
-                        placeholder='Company Name'
-                        fullWidth
-                        type='text'
-                        size='medium' />
+        <>
+            <Wrapper onSubmit={sendEmail} $disabledBtn={disabledBtn}>
+                <OfferText>Send an Offer</OfferText>
+                <Content>
+                    <TextFieldWrapper>
+                        <NameInput
+                            id="outlined-basic"
+                            label="Company Name"
+                            name='company-name'
+                            variant="outlined"
+                            placeholder='Company Name'
+                            fullWidth
+                            type='text'
+                            size='medium' />
 
-                    <EmailInput
-                        id="outlined-basic"
-                        label="Company email"
-                        name='company-email'
-                        variant="outlined"
-                        placeholder='Company email'
-                        fullWidth
-                        type='email'
-                        size='medium' />
-                </TextFieldWrapper>
+                        <EmailInput
+                            id="outlined-basic"
+                            label="Company email"
+                            name='company-email'
+                            variant="outlined"
+                            placeholder='Company email'
+                            fullWidth
+                            type='email'
+                            size='medium' />
+                    </TextFieldWrapper>
 
-                <SecondWrapper>
-                    <TextArea
-                        type='text'
-                        id="outlined-multiline-static"
-                        label="Offer"
-                        multiline
-                        rows={5}
-                        name='company-offer'
-                        placeholder='Offer'
-                        fullWidth
-                        defaultValue="" />
-                </SecondWrapper>
-            </Content>
-            <SubmitButton>Submit</SubmitButton>
-
-        </Wrapper>
+                    <SecondWrapper>
+                        <TextArea
+                            type='text'
+                            id="outlined-multiline-static"
+                            label="Offer"
+                            multiline
+                            rows={5}
+                            name='company-offer'
+                            placeholder='Offer'
+                            fullWidth
+                            defaultValue="" />
+                    </SecondWrapper>
+                </Content>
+                <SubmitButton disabled={disabledBtn}>Submit</SubmitButton>
+            </Wrapper>
+            <RightPopUp show={showPopUp} text={message} />
+        </>
     )
 }
 
-const Wrapper = styled.form`
-
+const Wrapper = styled.form<{ $disabledBtn: boolean }>`
+    transition: all 500ms;
+    opacity: ${({ $disabledBtn }) => ($disabledBtn ? "0.4" : "1")};
+    user-select: ${({ $disabledBtn }) => ($disabledBtn ? "none" : "unset")};
+    pointer-events: ${({ $disabledBtn }) => ($disabledBtn ? "none" : "unset")};
 `;
 const OfferText = styled.div`
     font-size: 25px;
