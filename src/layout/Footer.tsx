@@ -49,7 +49,7 @@ const FooterWrapper = styled.footer`
   -webkit-box-shadow: 0px -1px 3px 0px rgba(255,194,92,1);
   -moz-box-shadow: 0px -1px 3px 0px rgba(255,194,92,1);
   box-shadow: 0px -1px 3px 0px rgba(255,194,92,1);
-  padding: 0px 10px 0px 5px;
+  padding: 0px 25px 0px 20px;
   position: relative;
     ${Responsive.mobile} {
       display: none;
