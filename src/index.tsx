@@ -8,11 +8,11 @@ ReactDOM.render(
     <App />
     <MessengerChat
       pageId="106392365544446"
-      language="sv_SE"
-      themeColor={"#000000"}
-      bottomSpacing={300}
-      loggedInGreeting="loggedInGreeting"
-      loggedOutGreeting="loggedOutGreeting"
+      language="en_GB"
+      themeColor={"#5385A3"}
+      bottomSpacing={10}
+      loggedInGreeting="Logged In Voyager"
+      loggedOutGreeting="Logged Out Voyager"
       greetingDialogDisplay={"show"}
       debugMode={true}
       onMessengerShow={() => {
